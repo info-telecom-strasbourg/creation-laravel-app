@@ -1,5 +1,7 @@
 # Application Laravel
 
+*Être sûr que votre système est à jour.*
+
 ## Création
 Exécuter la commande suivante (long) en remplacant `nom-application` par le nom que doit prendre votre application. <br>
 Ce nom de dossier ne doit pas déjà existé dans le dossier courant.
@@ -8,17 +10,12 @@ Ce nom de dossier ne doit pas déjà existé dans le dossier courant.
 curl -s https://laravel.build/nom-application | bash
 ```
 
-Une fois la commande terminée (long) :
-```sh
-cd nom-application && ./vendor/bin/sail up
-```
-
 ### Ajout du conteneur pour phpMyAdmin
 - Se déplacer dans le dossier de l'application
   ```sh
   cd nom-application
   ```
-- Ouvir le fichier `docker-compose.yml`
+- Ouvrir le fichier `docker-compose.yml`
 - Coller le code suivant à la fin du bloc `mysql:`, `phpmyadmin:` doit être aligné avec `mysql:`
   
   ```
@@ -38,6 +35,8 @@ cd nom-application && ./vendor/bin/sail up
         networks:
             - sail
   ```
+
+  Maintenant vous pouvez [lancer l'application](#lancer-app).
 
 ## Récupérer une application Laravel
 - Cloner le repository de GitHub
@@ -71,13 +70,13 @@ cd nom-application && ./vendor/bin/sail up
     ```
     Qui créera un alias dans le terminal courant (**Vous devrez l'utiliser pour chaque nouveau terminal**)
 
-## Lancer l'application
+## <a name="lancer-app"></a>Lancer l'application
 
 Il faut lancer les conteneurs pour pouvoir visualiser le site, phpMyAdmin :
 
 - Start les conteneurs :
   ```sh
-  ./vendor/bin/sail up
+  ./vendor/bin/sail up -d
   ```
   Ou avec alias
   ```sh
