@@ -1,10 +1,16 @@
 # Application Laravel
 
 ## Création
-Exécuter la commande suivante en remplacant `nom-application` par le nom que doit prendre votre application.
+Exécuter la commande suivante (long) en remplacant `nom-application` par le nom que doit prendre votre application. <br>
+Ce nom de dossier ne doit pas déjà existé dans le dossier courant.
 
 ```sh
 curl -s https://laravel.build/nom-application | bash
+```
+
+Une fois la commande terminée (long) :
+```sh
+cd nom-application && ./vendor/bin/sail up
 ```
 
 ### Ajout du conteneur pour phpMyAdmin
