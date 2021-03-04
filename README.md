@@ -1,20 +1,47 @@
 # Application Laravel
 
 ## Création
+Exécuter la commande suivante en remplacant `nom-application` par le nom que doit prendre votre application.
 
 ```sh
-curl -s https://laravel.build/example-app | bash
+curl -s https://laravel.build/nom-application | bash
 ```
 
+### Ajout du conteneur pour phpMyAdmin
+- Se déplacer dans le dossier de l'application
+  ```sh
+  cd nom-application
+  ```
+- Ouvir le fichier `docker-compose.yml`
+- Coller le code suivant à la fin du bloc `mysql:`, `phpmyadmin:` doit être aligné avec `mysql:`
+  
+  ```
+  phpmyadmin:
+        depends_on:
+            - mysql
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - '8181:80'
+        restart: always
+        environment:
+            PMA_ARBITRARY: 1
+            PMA_HOST: mysql
+            PMA_USER: '${DB_USERNAME}'
+            PMA_PASSWORD: '${DB_PASSWORD}'
+            PMA_PORT: 3306
+        networks:
+            - sail
+  ```
+
 ## Récupérer une application Laravel
--  Cloner le repository de GitHub
-    ```sh
-    git clone git@github.com:info-telecom-strasbourg/nom-application.git
-    ```
-- Se déplacer dans l'application
-    ```sh
-    cd nom-application
-    ```
+- Cloner le repository de GitHub
+   ```sh
+   git clone git@github.com:info-telecom-strasbourg/nom-application.git
+   ```
+- Se déplacer dans le dossier de l'application
+  ```sh
+  cd nom-application
+  ```
 - Installer `sail` dans l'application (long)
   ```sh
   composer require laravel/sail --dev
@@ -71,4 +98,3 @@ Les commandes `php artisan` doivent **ABSOLUMENT** être remplacé par `sail art
 
 `php artisan` : execute la commande localement<br>
 `sail artisan`: execute la commande dans Laravel Sail (dans notre conteneur)
-
