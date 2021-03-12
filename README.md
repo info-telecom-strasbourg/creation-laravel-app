@@ -2,6 +2,17 @@
 
 *Être sûr que votre système est à jour.*
 
+## Prérequis
+Il vous faut installer **DOCKER** !!!!
+
+- [Linux](https://docs.docker.com/engine/install/ubuntu/)
+- [Mac & Windows](https://www.docker.com/products/docker-desktop)
+
+Sur Linux il faut [changer les droits](https://docs.docker.com/engine/install/linux-postinstall/) si vous voulez pouvoir exécuter docker sans `sudo`. Lisez et suivez les points 1 à 3.
+
+Ensuite [installer](https://docs.docker.com/compose/install/) `docker-compose` en choisisant le tutorial qui correspond à votre système d'exploitation. 
+
+
 ## Création
 Exécuter la commande suivante (long) en remplacant `nom-application` par le nom que doit prendre votre application. <br>
 Ce nom de dossier ne doit pas déjà existé dans le dossier courant.
